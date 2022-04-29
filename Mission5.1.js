@@ -88,9 +88,10 @@ const createGame2 = () =>{
 
 //Bonus
 
-const createGameE = () => {
+const createGameBonus = () => {
     const secretNumber = 5;
     const guessNumber = () => {
+      process.stdout.write("ingresa un numero: ");
       process.stdin.on("data", (data) => {
         let userNumber = parseInt(data);
         if (userNumber === secretNumber) {
@@ -98,13 +99,18 @@ const createGameE = () => {
           process.exit();
         }
         if (userNumber <= secretNumber) {
-          console.log("Muy bajo");
+          process.stdout.write("Tu numero es muy bajo, ingresa otro numero: ");
         }
         if (userNumber >= secretNumber) {
-          console.log("Muy Alto");
+          process.stdout.write("Tu numero es muy Alto, ingresa otro numero: ");
         }
       });
     };
     return guessNumber;
   };
+  const guess =createGame();
+  guess();
+
+
+
   
